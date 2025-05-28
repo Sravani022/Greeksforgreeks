@@ -91,3 +91,23 @@ class Solution {
         return false;
     }
 }
+
+
+# Pascal Triangle
+class Solution {
+    ArrayList<Integer> nthRowOfPascalTriangle(int n) {
+        ArrayList<Integer> Prev=new ArrayList<>();
+        ArrayList<Integer> Cur=new ArrayList<>();
+        Prev.add(1);
+        for(int i=1;i<n;i++){
+            Cur=new ArrayList<>();
+            Cur.add(1);
+            for(int j=1;j<i;j++){
+                Cur.add(Prev.get(j-1)+Prev.get(j));
+            }
+            Cur.add(1);
+            Prev=Cur;
+        }
+        return Prev;
+    }
+}
